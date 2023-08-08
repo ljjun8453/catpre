@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap" rel="stylesheet">
+    <title>고양이를 사랑하는 고양이대통령</title>
+    <style>
+
+        /* 잡 것 */
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+        .Font-JosefinSans {
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        header {
+            /* border: 1px solid black; 임시구획선 */
+            height: 160px;
+            background-color: white;
+            box-shadow: 0px 5px 20px gray;
+            z-index: 999;
+        }
+        footer {
+            /* border: 1px solid black; 임시구획선 */
+            height: auto; /* 535px */
+        }
+        input::-webkit-search-cancel-button{
+            display: none;
+        }
+        a {
+            text-decoration-line: none;
+            color: gray;
+        }
+        .Color-Blue {
+            color: blue;
+        }
+        .Sticky {
+            position: sticky;
+            top: 0;
+        }
+        .ScrollTop {
+            background-color: white;
+            box-shadow: 0px 5px 10px gray;
+            height: 20px;
+            width: 20px;
+            padding: 20px;
+            border-radius: 100px;
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            z-index: 998;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .Scale:hover {
+            transform: scale(1.1, 1.1);
+            transition-duration: 0.2s;
+        }
+        .Cursor{
+            cursor: pointer;
+        }
+
+
+        /* Header */
+        /* 할인배너 */
+        .DiscountLine-Container {
+            height: 40px;
+            background-color: rgb(166, 70, 244);
+            display: flex;
+            justify-content: center;
+        }
+        .DiscountLine-InnerContainer {
+            /* border: 1px solid red; 임시구획선 */
+            height: 100%;
+            width: 1200px; /* 이너컨테이너들에서 너비 고정으로 조정 */
+            display: flex;
+            color: white;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .DiscountLine-TextContainer1 {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            margin: auto;
+        }
+        .DiscountLine-TextContainer2 {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            margin: auto 40px auto 0;
+        }
+
+
+        /* 검색라인 */
+        .SearchLine-Container {
+            /* border: 1px solid black; 임시구획선 */
+            height: 50%;
+            display: flex;
+            justify-content: center;
+            position: sticky;
+        }
+        .SearchLine-InnerContainer {
+            /* border: 1px solid red; 임시구획선 */
+            height: 100%;
+            width: 1200px;
+            display: flex;
+            align-items: center;
+        }
+        /* .SearchLine-Text {
+            height: 80%;
+            width: 100%;
+            border: 1px solid orangered;
+            display: flex;
+            align-items: center;
+        } */
+        .MainText-Size {
+            height: 100%;
+            width: 175px;
+        }
+        .MainText-Margin {
+            margin: 5px 0 0 0;
+        }
+        .Search {
+            height: 100%;
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .SearchBar { 
+            background-color: rgb(240, 240, 240);
+            height: 47.5px;
+            width: 550px;
+            border-radius: 100px;
+            margin: auto 0 auto 20px;
+            display: flex;
+            align-items: center;
+        }
+        .SearchBar-InputStyle {
+            font-size: 17.5px;
+            background-color: initial;
+            border: 0;
+            width: 450px;
+            margin: auto;
+            outline: none;
+        }
+        .SearchBar-ButtonStyle {
+            height: 24pt;
+            width: 24pt;
+            fill: rgb(161, 63, 255);
+            border: 0;
+            margin: auto;
+        }
+        .Blank {
+            width: 100%;
+        }
+        .ShoppingCart-Size,
+        .Human-Size,
+        .Bell-Size {
+            height: 28px;
+            width: 28px;
+            margin: 15px;
+        }
+    
+
+        /* 카테고리1 */
+        .CategoryLine1-Container {
+            /* border: 1px solid black; 임시구획선 */
+            height: 50%;
+            display: flex;
+            justify-content: center;
+        }
+        .Category1-InnerContainer {
+            /* border: 1px solid red; 임시구획선 */
+            height: 100%;
+            width: 1200px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .Category1-Size {
+            height: 18px;
+            width: 18px;
+        }
+        .Category1-Nav {
+            /* border: 1px solid blue;  임시구획선 */
+            height: 50%;
+            font-size: medium;
+            font-weight: 900;
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            margin: auto 0;
+        }
+        .Gnb-Banner {
+            /* border: 1px solid blue; 임시구획선 */
+            height: 50%;
+            padding: auto;
+            display: flex;
+            align-items: center;
+            margin: auto 0;
+        }
+        li {
+            margin: 10px;
+        }
+        li:hover {
+            color: rgb(166, 70, 244);
+            fill: rgb(166, 70, 244);
+            transform: scale(1.1, 1.1);
+            cursor: pointer;
+        }
+
+
+        /* Main */
+        /* 메인배너 */
+        .MainBanner-Container {
+            /* border: 1px solid black; 임시구획선 */
+            height: 350px;
+            display: flex;
+            justify-content: center;
+            background-color: rgb(240, 177, 97);
+            /* background-color: rgb(246, 246, 246); */
+        }
+        .MainBanner-InnerContainer {
+            /* border: 1px solid red; 임시구획선 */
+            height: 100%;
+            width: 1200px;
+        }
+        .MainBanner-Size {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+
+
+        /* 카테고리2 */
+        .CategoryLine2-Container {
+            /* border: 1px solid black; 임시구획선 */
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .CategoryLine2-InnerContainer {
+            /* border: 1px solid red; 임시구획선 */
+            height: 80%;
+            width: 1200px;
+            display: flex;
+            align-items: center;
+        }
+        .CategoryLine2-UnitContainer {
+            /* border: 1px solid red; 임시구획선 */
+            height: 100%;
+            width: 10%;
+            display: flex;
+            flex-direction: column;
+        }
+        .CategoryLine2-Icon {
+            /* border: 1px solid blue; 임시구획선 */
+            margin: auto auto 0 auto;
+        }
+        .CategoryLine2-Text {
+            /* border: 1px solid blue; 임시구획선 */
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: bold;
+            margin: 0 auto auto;
+        }
+        .Category-IconSize {
+            height: 90px;
+            width: 90px;
+        }
+
+
+        /* 배너광고1 */
+        .BannerAds1-Container {
+            /* border: 1px solid black; 임시구획선 */
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .BannerAds1-InnerContainer {
+            /* border: 1px solid red; 임시구획선 */
+            height: 80%;
+            width: 1200px;
+            display: flex;
+            justify-content: center;
+        }
+        .BannerAds1-Size {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+
+
+        /* 핫딜 */
+        .HotDeal-Container {
+            /* border: 1px solid black; 임시구획선 */
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .HotDeal-InnerContainer {
+            /* border: 1px solid red; 임시구획선 */
+            width: 1200px;
+        }
+        .HotDeal-TextContainer {
+            /* border: 1px solid red; 임시구획선 */
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .HotDeal-UnitContainer {
+            /* border: 1px solid red; 임시구획선 */
+            height: auto;
+            display: flex;
+        }
+        .HotDeal-UnitInnerContainer {
+            /* border: 1px solid red; 임시구획선 */
+            height: auto;
+            width: 300px;
+            margin: 20px 10px 0 10px;
+        }
+        .HotDeal-Img {
+            /* border: 1px solid blue; 임시구획선 */
+            height: 275px;
+            background-color: rgb(239, 241, 238);
+            border-radius: 15px;
+            margin: 0 0 10px 0;
+        }
+        .HotDeal-ImgSize {
+            border-radius: 15px;
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+        .HotDeal-Timer {
+            background-color: rgb(195, 116, 255);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+            padding: 5px;
+            border-radius: 7px;
+            position: relative;
+            left: 10px;
+            bottom: 272px;
+        }
+        .HotDeal-InnerTextContainer {
+            /* border: 1px solid blue; 임시구획선 */
+            height: auto;
+        }
+        .HotDeal-Text1 {
+            /* border: 1px solid blue; 임시구획선 */
+            padding: 5px 0;
+            font-family: 'Gothic A1', sans-serif;
+            font-weight: bold;
+            color: gray;
+        }
+        .HotDeal-Text2 {
+            /* border: 1px solid blue; 임시구획선 */
+            margin: 0 0 5px;
+        }
+        .HotDeal-Text3 {
+            /* border: 1px solid blue; 임시구획선 */
+            background-color: white;
+        }
+        .HotDeal-Text-Gray {
+            color: gray;
+        }
+        .HotDeal-Text-Red {
+            color: red;
+        }
+        .HotDeal-Text4 {
+            /* border: 1px solid blue; 임시구획선 */
+            margin: 0 0 3px 0;
+        }
+        .HotDeal-Text5 {
+            /* border: 1px solid blue; 임시구획선 */
+            height: 25px;
+        }
+        .HotDeal-TextStyle1 {
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            background-color: rgb(219, 255, 244);
+            color: rgb(71, 173, 131);
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .HotDeal-TextStyle2 {
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            background-color: rgb(195, 116, 255);
+            color: white;
+            padding: 5px 6px;
+            border-radius: 5px;
+        }
+
+
+        /* 이 상품 어때요? */
+        .RecommendProduct-Container {
+            /* border: 1px solid black; 임시구획선 */
+            height: 650px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .RecommendProduct-InnerContainer {
+            /* border: 1px solid red; 임시구획선 */
+            width: 1200px;
+        }
+        .Recommend-Coupon {
+            /* border: 1px solid blue; 임시구획선 */
+            height: 25px;
+            margin: 5px 0 0 0;
+            display: flex;
+        }
+        .Recommend-Coupon-Text {
+            background-color: rgb(166, 70, 244);
+            padding: 5px;
+            color: white;
+            border: rgb(166, 70, 244);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+        .Recommend-Coupon-Price {
+            padding: 5px;
+            color: rgb(166, 70, 244);
+            border: 1px solid rgb(166, 70, 244);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+
+
+
+        /* 배너광고2 */
+        .BannerAds2-Container {
+            /* border: 1px solid black; 임시구획선 */
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .BannerAds2-InnerContainer {
+            /* border: 1px solid red; 임시구획선 */
+            height: 80%;
+            width: 1200px;
+            display: flex;
+            justify-content: center;
+        }
+        .BannerAds2-Size {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+
+
+        /* 고대랭킹 */
+        .Rank-Container {
+            /* border: 1px solid black; 임시구획선 */
+            height: 700px;
+        }
+
+
+        /* 493+ 국내 최대 브랜드 보유! */
+        .Brand-Container {
+            /* border: 1px solid black; 임시구획선 */
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .Brand-InnerContainer {
+            /* border: 1px solid red; 임시구획선 */
+            width: 1200px;
+        }
+        .Brand-Text {
+            /* border: 1px solid red; 임시구획선 */
+            height: 50px;
+            display: flex;
+            align-items: center;
+        }
+        .Brand-Icon {
+            /* border: 1px solid red; 임시구획선 */
+            height: 250px;
+            display: flex;
+        }
+        .Brand-UnitContainer {
+            /* border: 1px solid blue; 임시구획선 */
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+        }
+        .Brand-InnerIcon {
+            border: 1px solid rgb(200, 200, 200);
+            margin: auto;
+            border-radius: 50%;
+            padding: 30px;
+            display: flex;
+        }
+        .Brand-InnerText {
+            /* border: 1px solid blue; 임시구획선 */
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: bold;
+            margin: 0 auto auto;
+        }
+        .Brand-IconSize {
+            height: 100px;
+            width: 100px;
+        }
+
+
+        /* 이벤트 */
+        .Event-Container {
+            /* border: 1px solid black; 임시구획선 */
+            height: 800px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .Event-InnerContainer {
+            /* border: 1px solid red; 임시구획선 */
+            width: 1200px; 
+        }
+        .Event-TextContainer {
+            /* border: 1px solid red; 임시구획선 */
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .Event-UnitContainer {
+            /* border: 1px solid red; 임시구획선 */
+            display: flex;
+        }
+        .Event-UnitInnerContainer {
+            /* border: 1px solid red; 임시구획선 */
+            width: 600px;
+            margin: 20px 10px 0 10px;
+        }
+        .Event-Img {
+            /* border: 1px solid red; 임시구획선 */
+            height: 350px;
+            margin: 0 0 10px 0;
+            border-radius: 15px;
+            background-color: rgb(238, 238, 238);
+        }
+        .Event-ImgSize1 {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+            border-radius: 15px;
+        }
+        .Event-ImgSize2 {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+        .Event-InnerTextContainer {
+            /* border: 1px solid blue; 임시구획선 */
+            margin: 0 0 10px 0;
+            font-weight: bold;
+            font-size: 17px;
+        }
+        .Event-ListContainer {
+            /* border: 1px solid blue; 임시구획선 */
+            height: 125px;
+            margin: 0 0 15px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .Event-InnerImg {
+            /* border: 1px solid blue; 임시구획선 */
+            width: 125px;
+            border-radius: 15px;
+            background-color: rgb(238, 238, 238);
+        }
+        .Event-innerText {
+            /* border: 1px solid blue; 임시구획선 */
+            width: 435px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .Event-Text1 {
+            padding: 0 0 15px 0;
+            font-size: 15px;
+        }
+        .Event-Text2 {
+            font-size: 15px;
+            line-height: 20px;
+        }
+        .Event-Text-Gray {
+            color: gray;
+        }
+        .Event-Text-Red {
+            color: red;
+        }
+
+
+        /* 구매후기 */
+        .Review-Container {
+            /* border: 1px solid black; 임시구획선 */
+            height: 300px;
+        }
+
+
+        /* Footer */
+        /* Footer배너 */
+        .FooterBanner-Container {
+            /* border: 1px solid black; 임시구획선 */
+            height: 200px;
+            display: flex;
+            justify-content: center;
+        }
+        .FooterBanner-ContainerBGColor {
+            /* border: 1px solid red; 임시구획선 */
+            height: 150px;
+            width: 100%;
+            background: linear-gradient(to right ,rgb(163, 65, 255), rgb(239, 139, 255));
+        }
+        .FooterBanner-InnerContainer {
+            /* border: 1px solid red; 임시구획선 */
+            height: 150px;
+            width: 1200px;
+            display: flex;
+            align-items: center;
+            margin: 0 auto 50px auto;
+        }
+        .FooterBanner-Img {
+            width: 100%;
+            margin: auto 15px;
+        }
+        .FooterBanner-ImgLine {
+            border-right: 1px solid white;
+        }
+        
+
+        /* 로고 */
+        .Logo-Container {
+            /* border: 1px solid black; 임시구획선 */
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .Logo-InnerContainer {
+            /* border: 1px solid red; 임시구획선 */
+            height: 100%;
+            width: 1200px;
+        }
+        .Logo-Size {
+            height: 45px;
+            width: auto;
+        }
+
+
+        /* 가이드라인 */
+        .GuideLine-Container {
+            /* border: 1px solid black; 임시구획선 */
+            height: 35px;
+            display: flex;
+            justify-content: center;
+        }
+        .GuideLine-InnerContainer {
+            /* border: 1px solid red; 임시구획선 */
+            height: 100%;
+            width: 1200px;
+        }
+        .GuideLine-Text {
+            margin: 0 0 50px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .GuideLine-TextStyle {
+            font-family: 'Gothic A1', sans-serif;
+            color: rgb(150, 150, 150);
+        }
+        .GuideLine-TextBold {
+            color: black;
+        }
+
+
+
+        /* 사업자정보 */
+        .Info-Container {
+            /* border: 1px solid black; 임시구획선 */
+            height: 70px;
+            display: flex;
+            justify-content: center;
+        }
+        .Info-InnerContainer {
+            /* border: 1px solid red; 임시구획선 */
+            height: 100%;
+            width: 1200px;
+        }
+        .Info-Text {
+            line-height: 22.5px;
+            font-size: 12px;
+        }
+        .Info-TextStyle {
+            font-family: 'Gothic A1', sans-serif;
+            color: rgb(120, 120, 120);
+        }
+        .Info-TextBold {
+            font-weight: bold;
+            color: bl;
+        }
+
+
+        /* SNS */
+        .SNS-Container {
+            /* border: 1px solid black; 임시구획선 */
+            height: 80px;
+            display: flex;
+            justify-content: center;
+        }
+        .SNS-InnerContainer {
+            /* border: 1px solid red; 임시구획선 */
+            height: 100%;
+            width: 1200px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .Chat {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 15px;
+            height: 40px;
+            width: 150px;
+            border: 1px solid rgb(200, 200, 200);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .SNS-UnitContainer {
+            /* border: 1px solid blue; 임시구획선 */
+            height: 40px;
+            width: 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* 협력기관 */
+        .Corp-Container {
+            /* border: 1px solid black; 임시구획선 */
+            height: 60px;
+            display: flex;
+            justify-content: center;
+        }
+        .Corp-InnerContainer {
+            /* border: 1px solid red; 임시구획선 */
+            border-top: 1px solid rgb(200, 200, 200);
+            height: 100%;
+            width: 1200px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+
+        /* 기업은행 채무지급보증 안내 */
+        .Bottom-Container {
+            /* border: 1px solid black; 임시구획선 */
+            background-color: rgb(233, 233, 234);
+            height: 40px;
+            display: flex;
+            justify-content: center;
+        }
+        .Bottom-InnerContainer {
+            /* border: 1px solid red; 임시구획선 */
+            background-color: rgb(233, 233, 234);
+            height: 100%;
+            width: 1200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .Bottom-Text {
+            /* border: 1px solid blue; 임시구획선 */
+            font-family: 'Gothic A1', sans-serif;
+            font-size: 15px;
+        }
+        .Bottom-TextStyle1 {
+            color: black;
+            font-weight:600;
+        }
+        .Bottom-TextStyle2 {
+            color: rgb(75, 75, 75);
+        }
+    </style>
+</head>
+<body>
+    <div class="ScrollTop Scale">
+        <img src="img/scrolltop.png" alt="스크롤탑">
+    </div>
+    <section class="DiscountLine-Container">
+        <div class="DiscountLine-InnerContainer">
+            <div class="DiscountLine-TextContainer1">
+                <div>지금 가입하면 최대 <span class="Font-JosefinSans">35,000원</span> 할인 혜택</div>
+            </div>
+            <div class="DiscountLine-TextContainer2">
+                <div>X</div>
+            </div>
+        </div>
+    </section>
+    <header class="Sticky">
+        <section class="SearchLine-Container">
+            <div class="SearchLine-InnerContainer">
+                <!-- <div class="SearchLine-Text">/ -->
+                    <span class="MainText-Margin">
+                        <img class="MainText-Size" src="img/catpreMainText.JPG" alt="고양이대통령">
+                    </span>
+                    <span class="Search">
+                        <div class="SearchBar">
+                            <input class="SearchBar-InputStyle" type="search" placeholder="3만원 이상 무료배송">
+                            <button class="SearchBar-ButtonStyle Scale Cursor" type="submit">
+                                <svg viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M10.8353 4.4502C7.30892 4.4502 4.4502 7.30892 4.4502 10.8353C4.4502 14.3617 7.30892 17.2205 10.8353 17.2205C11.6199 17.2205 12.3699 17.0793 13.0622 16.8216C13.4504 16.6771 13.8822 16.8747 14.0267 17.2629C14.1712 17.6511 13.9736 18.0829 13.5854 18.2274C12.7282 18.5465 11.8012 18.7205 10.8353 18.7205C6.48049 18.7205 2.9502 15.1902 2.9502 10.8353C2.9502 6.48049 6.48049 2.9502 10.8353 2.9502C15.1902 2.9502 18.7205 6.48049 18.7205 10.8353C18.7205 12.742 18.0428 14.4922 16.9162 15.8555L20.7305 19.6699C21.0234 19.9628 21.0234 20.4376 20.7305 20.7305C20.4376 21.0234 19.9628 21.0234 19.6699 20.7305L15.7039 16.7645C15.207 16.2677 15.2378 15.5034 15.6556 15.0229C16.6308 13.9014 17.2205 12.4382 17.2205 10.8353C17.2205 7.30892 14.3617 4.4502 10.8353 4.4502Z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </span>
+                    <span class="Blank"></span>
+                    <span>
+                        <img class="Bell-Size Scale Cursor" src="img/bell.png" alt="종모양">
+                    </span>
+                    <span>
+                        <img class="Human-Size Scale Cursor" src="img/human.png" alt="사람모양">
+                    </span>
+                    <span>
+                        <img class="ShoppingCart-Size Scale Cursor" src="img/shopping_cart.png" alt="쇼핑카트모양">
+                    </span>
+                </div>
+            <!-- </div> -->
+        </section>
+        <section class="CategoryLine1-Container">
+            <div class="Category1-InnerContainer">
+                <ul class="Category1-Nav">
+                    <li>
+                        <g>
+                            <svg class="Category1-Size">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M2.54118 6.7915C2.54118 6.44633 2.821 6.1665 3.16618 6.1665H16.8486C17.1938 6.1665 17.4736 6.44633 17.4736 6.7915C17.4736 7.13668 17.1938 7.4165 16.8486 7.4165H3.16618C2.821 7.4165 2.54118 7.13668 2.54118 6.7915ZM2.54118 11.7915C2.54118 11.4463 2.821 11.1665 3.16618 11.1665H16.8486C17.1938 11.1665 17.4736 11.4463 17.4736 11.7915C17.4736 12.1367 17.1938 12.4165 16.8486 12.4165H3.16618C2.821 12.4165 2.54118 12.1367 2.54118 11.7915ZM17.427 15.4043C17.5814 15.0956 17.4562 14.7202 17.1475 14.5658C16.8388 14.4115 16.4634 14.5366 16.309 14.8453L15.8483 15.7666C15.7258 16.0117 15.4753 16.1665 15.2013 16.1665H3.16602C2.82084 16.1665 2.54102 16.4463 2.54102 16.7915C2.54102 17.1367 2.82084 17.4165 3.16602 17.4165H15.2013C15.9488 17.4165 16.6321 16.9942 16.9664 16.3257L17.427 15.4043Z">
+                                </path>
+                            </svg>
+                            카테고리
+                        </g>
+                    </li>
+                    <li>핫딜</li>
+                    <li>체험단</li>
+                    <li>랭킹</li>
+                    <li>신상품</li>
+                    <li>브랜드</li>
+                    <li>사료샘플</li>
+                    <li>이벤트</li>
+                    <li>스티커샵</li>
+                </ul>
+                <div class="Gnb-Banner Scale Cursor">
+                    <img src="img/gnb_banner.png" alt="GNB배너">
+                </div>
+            </div>
+        </section>
+    </header>
+    <main>
+        <section class="MainBanner-Container">
+            <div class="MainBanner-InnerContainer">
+                <img class="MainBanner-Size" src="./img/main_banner3.png" alt="메인배너이미지">
+            </div>
+        </section>
+        <section class="CategoryLine2-Container">
+            <div class="CategoryLine2-InnerContainer">
+                <div class="CategoryLine2-UnitContainer Scale Cursor">
+                    <div class="CategoryLine2-Icon">
+                        <img class="Category-IconSize" src="img/hot_icon_1.png" alt="핫딜">
+                    </div>
+                    <div class="CategoryLine2-Text">핫딜</div>
+                </div>
+                <div class="CategoryLine2-UnitContainer Scale Cursor">
+                    <div class="CategoryLine2-Icon">
+                        <img class="Category-IconSize" src="img/new_icon_1.png" alt="신상품">
+                    </div>
+                    <div class="CategoryLine2-Text">신상품</div>
+                </div>
+                <div class="CategoryLine2-UnitContainer Scale Cursor">
+                    <div class="CategoryLine2-Icon">
+                        <img class="Category-IconSize" src="img/real_icon.png" alt="사료샘플">
+                    </div>
+                    <div class="CategoryLine2-Text">사료샘플</div>
+                </div>
+                <div class="CategoryLine2-UnitContainer Scale Cursor">
+                    <div class="CategoryLine2-Icon">
+                        <img class="Category-IconSize" src="img/rank_icon_1.png" alt="랭킹">
+                    </div>
+                    <div class="CategoryLine2-Text">랭킹</div>
+                </div>
+                <div class="CategoryLine2-UnitContainer Scale Cursor">
+                    <div class="CategoryLine2-Icon">
+                        <img class="Category-IconSize" src="img/coupon_icon.png" alt="쿠폰">
+                    </div>
+                    <div class="CategoryLine2-Text">쿠폰</div>
+                </div>
+                <div class="CategoryLine2-UnitContainer Scale Cursor">
+                    <div class="CategoryLine2-Icon">
+                        <img class="Category-IconSize" src="img/review_icon_1.png" alt="고대 후기">
+                    </div>
+                    <div class="CategoryLine2-Text">고대 후기</div>
+                </div>
+                <div class="CategoryLine2-UnitContainer Scale Cursor">
+                    <div class="CategoryLine2-Icon">
+                        <img class="Category-IconSize" src="img/friendrecommend_icon.png" alt="친구추천">
+                    </div>
+                    <div class="CategoryLine2-Text">친구추천</div>
+                </div>
+                <div class="CategoryLine2-UnitContainer Scale Cursor">
+                    <div class="CategoryLine2-Icon">
+                        <img class="Category-IconSize" src="img/bulkBottle_icon.png" alt="대용량 기획전">
+                    </div>
+                    <div class="CategoryLine2-Text">대용량 기획전</div>
+                </div>
+                <div class="CategoryLine2-UnitContainer Scale Cursor">
+                    <div class="CategoryLine2-Icon">
+                        <img class="Category-IconSize" src="img/present_icon.jpg" alt="증정">
+                    </div>
+                    <div class="CategoryLine2-Text">증정</div>
+                </div>
+                <div class="CategoryLine2-UnitContainer Scale Cursor">
+                    <div class="CategoryLine2-Icon">
+                        <img class="Category-IconSize" src="img/specialItem_icon.png" alt="특가템">
+                    </div>
+                    <div class="CategoryLine2-Text">특가템 ~61%</div>
+                </div>
+            </div>
+        </section>
+        <section class="BannerAds1-Container">
+            <div class="BannerAds1-InnerContainer">
+                <img class="BannerAds1-Size" src="./img/BannerAds1.jpg" alt="배너광고1">
+            </div>
+        </section>
+        <section class="HotDeal-Container">
+            <div class="HotDeal-InnerContainer">
+                <div class="HotDeal-TextContainer">
+                    <div><h2 style="margin: 0 0 0 10px;">핫딜</h2></div>
+                    <div><a style="margin: 0 10px 0 0;" href="여기에경로입력">더보기</a></div>
+                </div>
+                <div class="HotDeal-UnitContainer">
+                    <div class="HotDeal-UnitInnerContainer Scale Cursor">
+                        <div class="HotDeal-Img">
+                            <img class="HotDeal-ImgSize" src="img/duck&chicken.png" alt="스테라앤츄이스 크레이빙스 덕&치킨 80g">
+                            <span class="HotDeal-Timer">00:00:00 남음</span>
+                        </div>
+                        <div class="HotDeal-InnerTextContainer">
+                            <div class="HotDeal-Text1">대통령배송</div>
+                            <div class="HotDeal-Text2">스텔라앤츄이스 크레이빙스 덕&치킨 80g</div>
+                            <div class="HotDeal-Text3">
+                                <s class="HotDeal-Text-Gray">3,500원</s><br>
+                                <span class="HotDeal-Text-Red">46% </span><strong>1,900원</strong>
+                            </div>
+                            <div class="HotDeal-Text4">
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span class="HotDeal-Text-Gray">9</span>
+                            </div>
+                            <div class="HotDeal-Text5">
+                                <span class="HotDeal-TextStyle1">유통기한 책임제</span>
+                                <span class="HotDeal-TextStyle2">특가</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="HotDeal-UnitInnerContainer Scale Cursor">
+                        <div class="HotDeal-Img">
+                            <img class="HotDeal-ImgSize" src="img/jumpstick.jpg" alt="힐링타임 멜롱 실리콘 점프스틱">
+                            <span class="HotDeal-Timer">00:00:00 남음</span>
+                        </div>
+                        <div class="HotDeal-InnerTextContainer">
+                            <div class="HotDeal-Text1">대통령배송</div>
+                            <div class="HotDeal-Text2">힐링타임 멜롱 실리콘 점프스틱</div>
+                            <div class="HotDeal-Text3">
+                                <s class="HotDeal-Text-Gray">5,500원</s><br>
+                                <span class="HotDeal-Text-Red">24% </span><strong>4,200원</strong>
+                            </div>
+                            <div class="HotDeal-Text4">
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span class="HotDeal-Text-Gray">17</span>
+                            </div>
+                            <div class="HotDeal-Text5">
+                                <span class="HotDeal-TextStyle2">특가</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="HotDeal-UnitInnerContainer Scale Cursor">
+                        <div class="HotDeal-Img">
+                            <img class="HotDeal-ImgSize" src="img/tunacan.jpg" alt="고스비 프레스코 참치&연어&파파야캔 70g">
+                            <span class="HotDeal-Timer">00:00:00 남음</span>
+                        </div>
+                        <div class="HotDeal-InnerTextContainer">
+                            <div class="HotDeal-Text1">대통령배송</div>
+                            <div class="HotDeal-Text2">고스비 프레스코 참치&연어&파파야캔 70g</div>
+                            <div class="HotDeal-Text3">
+                                <s class="HotDeal-Text-Gray">2,700원</s><br>
+                                <span class="HotDeal-Text-Red">22% </span><strong>2,100원</strong>
+                            </div>
+                            <div class="HotDeal-Text4">
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span class="HotDeal-Text-Gray">152</span>
+                            </div>
+                            <div class="HotDeal-Text5">
+                                <span class="HotDeal-TextStyle1">유통기한 책임제</span>
+                                <span class="HotDeal-TextStyle2">특가</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="HotDeal-UnitInnerContainer Scale Cursor">
+                        <div class="HotDeal-Img">
+                            <img class="HotDeal-ImgSize" src="img/fishingrod.jpg" alt="펫모닝 풍성한 수탉꼬리 낚싯대">
+                            <span class="HotDeal-Timer">00:00:00 남음</span>
+                        </div>
+                        <div class="HotDeal-InnerTextContainer">
+                            <div class="HotDeal-Text1">대통령배송</div>
+                            <div class="HotDeal-Text2">펫모닝 풍성한 수탉꼬리 낚싯대</div>
+                            <div class="HotDeal-Text3">
+                                <s class="HotDeal-Text-Gray">5,000원</s><br>
+                                <span class="HotDeal-Text-Red">24% </span><strong>3,800원</strong>
+                            </div>
+                            <div class="HotDeal-Text4">
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span class="HotDeal-Text-Gray">1,754</span>
+                            </div>
+                            <div class="HotDeal-Text5">
+                                <span class="HotDeal-TextStyle2">특가</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="RecommendProduct-Container">
+            <div class="RecommendProduct-InnerContainer">
+                <div class="HotDeal-TextContainer">
+                    <div><h2 style="margin: 0 0 0 10px;">이 상품 어때요?</h2></div>
+                </div>
+                <div class="HotDeal-UnitContainer">
+                    <div class="HotDeal-UnitInnerContainer Scale Cursor">
+                        <div class="HotDeal-Img">
+                            <img class="HotDeal-ImgSize" src="img/scrach.jpg" alt="가리가리 스크래쳐 빅서클 베이지">
+                        </div>
+                        <div class="HotDeal-InnerTextContainer">
+                            <div class="HotDeal-Text1">대통령배송</div>
+                            <div class="HotDeal-Text2">가리가리 스크래쳐 빅서클 베이지</div>
+                            <div class="HotDeal-Text3">
+                                <s class="HotDeal-Text-Gray">36,000원</s><br>
+                                <span class="HotDeal-Text-Red">36% </span><strong>22,900원</strong>
+                            </div>
+                            <div class="Recommend-Coupon">
+                                <div class="Recommend-Coupon-Text">쿠폰</div>
+                                <div class="Recommend-Coupon-Price">1,145원</div>
+                            </div>
+                            <div class="HotDeal-Text4">
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span class="HotDeal-Text-Gray">2,188</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="HotDeal-UnitInnerContainer Scale Cursor">
+                        <div class="HotDeal-Img">
+                            <img class="HotDeal-ImgSize" src="img/chicken.png" alt="캣만두 라이프 에센셜 치킨 142g">
+                        </div>
+                        <div class="HotDeal-InnerTextContainer">
+                            <div class="HotDeal-Text1">대통령배송</div>
+                            <div class="HotDeal-Text2">캣만두 라이프 에센셜 치킨 142g</div>
+                            <div class="HotDeal-Text3">
+                                <s class="HotDeal-Text-Gray">33,000원</s><br>
+                                <span class="HotDeal-Text-Red">10% </span><strong>29,800원</strong>
+                            </div>
+                            <div class="HotDeal-Text4">
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span class="HotDeal-Text-Gray">2,322</span>
+                            </div>
+                            <div class="HotDeal-Text5">
+                                <span class="HotDeal-TextStyle1">유통기한 책임제</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="HotDeal-UnitInnerContainer Scale Cursor">
+                        <div class="HotDeal-Img">
+                            <img class="HotDeal-ImgSize" src="img/foodpuzzle.png" alt="하겐 캣잇 먹이 퍼즐">
+                        </div>
+                        <div class="HotDeal-InnerTextContainer">
+                            <div class="HotDeal-Text1">대통령배송</div>
+                            <div class="HotDeal-Text2">하겐 캣잇 먹이 퍼즐</div>
+                            <div class="HotDeal-Text3">
+                                <s class="HotDeal-Text-Gray">25,000원</s><br>
+                                <span class="HotDeal-Text-Red">12% </span><strong>22,000원</strong>
+                            </div>
+                            <div class="HotDeal-Text4">
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span class="HotDeal-Text-Gray">845</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="HotDeal-UnitInnerContainer Scale Cursor">
+                        <div class="HotDeal-Img">
+                            <img class="HotDeal-ImgSize" src="img/24ea.jpg" alt="페페로니 잘 먹는 캣츄 닭고기&참치 24개입">
+                            <span class="HotDeal-Timer">증정</span>
+                        </div>
+                        <div class="HotDeal-InnerTextContainer">
+                            <div class="HotDeal-Text1">대통령배송</div>
+                            <div class="HotDeal-Text2">페페로니 잘 먹는 캣츄 닭고기&참치 24개입</div>
+                            <div class="HotDeal-Text3">
+                                <s class="HotDeal-Text-Gray">12,900원</s><br>
+                                <span class="HotDeal-Text-Red">8% </span><strong>11,900원</strong>
+                            </div>
+                            <div class="Recommend-Coupon">
+                                <div class="Recommend-Coupon-Text">쿠폰</div>
+                                <div class="Recommend-Coupon-Price">1,145원</div>
+                            </div>
+                            <div class="HotDeal-Text4">
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span><img src="img/star_full.png" alt="별점FULL"></span>
+                                <span class="HotDeal-Text-Gray">34</span>
+                            </div>
+                            <div class="HotDeal-Text5">
+                                <span class="HotDeal-TextStyle1">유통기한 책임제</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="BannerAds2-Container">
+            <div class="BannerAds2-InnerContainer">
+                <img class="BannerAds2-Size" src="./img/BannerAds2.jpg" alt="배너광고2">
+            </div>
+        </section>
+        <!-- <section class="Rank-Container">고대랭킹700</section> -->
+        <section class="Brand-Container">
+            <div class="Brand-InnerContainer">
+                <div class="Brand-Text"><h2 style="margin: 15px;">493+ 국내 최대 브랜드 보유!</h2></div>
+                <div class="Brand-Icon">
+                    <div class="Brand-UnitContainer Scale Cursor">
+                        <div class="Brand-InnerIcon">
+                            <img class="Brand-IconSize" src="img/Orijen.png" alt="오리젠">
+                        </div>
+                        <div class="Brand-InnerText">오리젠</div>
+                    </div>
+                    <div class="Brand-UnitContainer Scale Cursor">
+                        <div class="Brand-InnerIcon">
+                            <img class="Brand-IconSize" src="img/acana.png" alt="아카나">
+                        </div>
+                        <div class="Brand-InnerText">아카나</div>
+                    </div>
+                    <div class="Brand-UnitContainer Scale Cursor">
+                        <div class="Brand-InnerIcon">
+                            <img class="Brand-IconSize" src="img/royalcanin.png" alt="로얄캐닌">
+                        </div>
+                        <div class="Brand-InnerText">로얄캐닌</div>
+                    </div>
+                    <div class="Brand-UnitContainer Scale Cursor">
+                        <div class="Brand-InnerIcon">
+                            <img class="Brand-IconSize" src="img/aatu.jpg" alt="아투">
+                        </div>
+                        <div class="Brand-InnerText">아투</div>
+                    </div>
+                    <div class="Brand-UnitContainer Scale Cursor">
+                        <div class="Brand-InnerIcon">
+                            <img class="Brand-IconSize" src="img/now.png" alt="now">
+                        </div>
+                        <div class="Brand-InnerText">now</div>
+                    </div>
+                    <div class="Brand-UnitContainer Scale Cursor">
+                        <div class="Brand-InnerIcon">
+                            <img class="Brand-IconSize" src="img/rawz.png" alt="로우즈">
+                        </div>
+                        <div class="Brand-InnerText">로우즈</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="Event-Container">
+            <div class="Event-InnerContainer">
+                <div class="Event-TextContainer">
+                    <div><h2 style="margin: 0 0 0 10px;">이벤트</h2></div>
+                    <div><a style="margin: 0 10px 0 0;" href="여기에경로입력">더보기</a></div>
+                </div>
+                <div class="Event-UnitContainer">
+                    <div class="Event-UnitInnerContainer">
+                        <div class="Event-Img">
+                            <img class="Event-ImgSize1 Cursor" src="img/brandweek.jpg" alt="브랜드위크1">
+                        </div>
+                        <div class="Event-InnerTextContainer">NOW,GO,게더 브랜드위크!</div>
+                        <div class="Event-ListContainer Cursor">
+                            <div class="Event-InnerImg">
+                                <img class="Event-ImgSize2 Scale" src="img/brandweek2.png" alt="브랜드위크2">
+                            </div>
+                            <div class="Event-innerText">
+                                <div class="Event-Text1">now 그레인프리 어덜트 1.36kg</div>
+                                <div class="Event-Text2">
+                                    <s class="Event-Text-Gray">37,500원</s><br>
+                                    <span class="Event-Text-Red">15% </span><strong>31,900원</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Event-ListContainer Cursor">
+                            <div class="Event-InnerImg">
+                                <img class="Event-ImgSize2 Scale" src="img/brandweek3.png" alt="브랜드위크3">
+                            </div>
+                            <div class="Event-innerText">
+                                <div class="Event-Text1">now 그레인프리 어덜트 3.63kg</div>
+                                <div class="Event-Text2">
+                                    <s class="Event-Text-Gray">70,000원</s><br>
+                                    <span class="Event-Text-Red">13% </span><strong>67,900원</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Event-UnitInnerContainer">
+                        <div class="Event-Img">
+                            <img class="Event-ImgSize1 Cursor" src="img/drySnack.jpg" alt="건조간식">
+                        </div>
+                        <div class="Event-InnerTextContainer">동결 건조 간식 최대 44% 할인</div>
+                        <div class="Event-ListContainer Cursor">
+                            <div class="Event-InnerImg">
+                                <img class="Event-ImgSize2 Scale" src="img/tofuTrit.png" alt="두부수제트릿">
+                            </div>
+                            <div class="Event-innerText">
+                                <div class="Event-Text1">펫502 연안부두 수제트릿 고등어 50g</div>
+                                <div class="Event-Text2">
+                                    <s class="Event-Text-Gray">19,900원</s><br>
+                                    <span class="Event-Text-Red">31% </span><strong>13,800원</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Event-ListContainer Cursor">
+                            <div class="Event-InnerImg">
+                                <img class="Event-ImgSize2 Scale" src="img/crispyChu.png" alt="바삭츄">
+                            </div>
+                            <div class="Event-innerText">
+                                <div class="Event-Text1">츄통령 바삭츄 동결건조 닭가슴살 대용량 100g</div>
+                                <div class="Event-Text2">
+                                    <s class="Event-Text-Gray">21,000원</s><br>
+                                    <span class="Event-Text-Red">34% </span><strong>13,900원</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- <section class="Review-Container">구매후기300</section> -->
+    </main>
+    <footer>
+        <section class="FooterBanner-Container ">
+            <div class="FooterBanner-ContainerBGColor">
+                <div class="FooterBanner-InnerContainer">
+                    <div class="FooterBanner-Img FooterBanner-ImgLine">
+                        <img src="img/footerBanner01.png" alt="고양이대통령의 약속">
+                    </div>
+                    <div class="FooterBanner-Img FooterBanner-ImgLine">
+                        <img src="img/footerBanner02.png" alt="유통기한 책임제">
+                    </div>
+                    <div class="FooterBanner-Img FooterBanner-ImgLine">
+                        <img src="img/footerBanner03.png" alt="오늘 출발">                      
+                    </div>
+                    <div class="FooterBanner-Img">
+                        <img src="img/footerBanner04.png" alt="무료배송">                      
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="Logo-Container">
+            <div class="Logo-InnerContainer">
+                <svg class="Logo-Size Cursor" viewBox="0 0 88 22" width="88" height="22">
+                    <path d="M0 0H20.4162V11H0V0Z" fill="#fff"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M7.27802 5.4206C7.54608 5.41199 7.85179 5.44911 8.05859 5.51742C8.26708 5.58788 8.43904 5.70513 8.57841 5.86919C8.71834 6.03324 8.82118 6.25269 8.89143 6.52593C8.95942 6.79971 8.99708 7.14126 8.99708 7.55004L8.9982 7.56672V7.59737V7.64256C8.9982 8.13847 9.02293 8.58921 9.13982 8.98401C9.2567 9.38096 9.4444 9.72144 9.69953 10.0022C9.9541 10.2781 10.2868 10.4917 10.6959 10.6439C11.1033 10.7961 11.5973 10.8709 12.1801 10.8709C13.2292 10.8709 14.0334 10.581 14.5937 10.0033C15.1399 9.43905 15.4277 8.66882 15.4378 7.69688L15.4462 7.38814C15.4462 6.97936 15.4867 6.63512 15.5738 6.35758C15.6614 6.07949 15.7856 5.85735 15.9458 5.69491C16.1059 5.52764 16.2993 5.41522 16.5252 5.34906C16.7511 5.2829 16.9972 5.2544 17.2681 5.263C17.5361 5.2544 17.7755 5.28398 17.9818 5.35552C18.1892 5.4249 18.3639 5.5427 18.5033 5.70513C18.6427 5.86919 18.7455 6.08541 18.8146 6.36188C18.8837 6.63834 18.9191 6.97936 18.9191 7.38814L18.9236 10.7907L20.4162 10.7961V7.76842C20.4162 7.26981 20.3578 6.82122 20.2403 6.42481C20.124 6.02786 19.9363 5.68846 19.6806 5.4093C19.4238 5.13069 19.0934 4.91661 18.6854 4.76601C18.2757 4.61379 17.7829 4.53795 17.2001 4.53795C16.1509 4.53795 15.3484 4.82625 14.7864 5.40392C14.229 5.98053 13.9491 6.76959 13.9491 7.76842L13.9413 8.09222C13.9413 8.50208 13.8929 8.77585 13.8053 9.05232C13.7187 9.33148 13.5956 9.5547 13.4344 9.71713C13.2742 9.88011 13.0798 9.99252 12.8561 10.0598C12.6296 10.1248 12.3829 10.1533 12.1137 10.1458C11.8451 10.1533 11.6057 10.1238 11.3984 10.0533C11.1887 9.98284 11.0162 9.86881 10.8769 9.70476C10.7375 9.54071 10.6358 9.32233 10.5666 9.04694C10.4953 8.7737 10.461 8.43054 10.461 8.02176L10.4503 7.86739C10.4492 7.38115 10.4323 6.97828 10.3183 6.58778C10.1986 6.19083 10.0131 5.85144 9.75742 5.57389C9.50172 5.29689 9.16904 5.0812 8.76217 4.92898C8.3525 4.77676 7.85741 4.702 7.27802 4.702H5.38026V3.07708C5.38026 2.6441 5.45388 2.27942 5.59887 1.9852C5.74554 1.68614 5.93211 1.44733 6.16196 1.26768C6.39124 1.08372 6.65255 0.961089 6.94309 0.890627C7.23644 0.820166 7.52585 0.78359 7.81582 0.78359H9.13982V-9.15527e-05H7.81582C6.50307 0.0090523 5.49884 0.324246 4.80425 0.943339C4.11022 1.56297 3.76236 2.40958 3.76236 3.4821V4.702H2.48951V5.4206H3.76236L3.76011 6.93525L3.75899 7.92386C3.75899 8.35578 3.6865 8.72153 3.53982 9.01467C3.39596 9.3105 3.20826 9.55039 2.97898 9.73004C2.74633 9.91077 2.48839 10.0388 2.19504 10.1092C1.90506 10.1797 1.61453 10.2152 1.32343 10.2152H0V11H1.32343C2.63618 10.9897 3.64042 10.6756 4.33557 10.0565C5.03016 9.43582 5.37801 8.58921 5.37801 7.51615V6.93525L5.38026 5.4206H7.27802Z"
+                        fill="#787878"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M33.2041 8.25285C33.2041 8.65841 33.1271 9.02201 32.9748 9.3442C32.8186 9.66477 32.6101 9.94339 32.3471 10.1763C32.0835 10.4097 31.7694 10.5894 31.4136 10.7152C31.0562 10.8406 30.6741 10.9035 30.2656 10.9035C29.6721 10.9035 29.1439 10.755 28.6819 10.4571C28.22 10.1618 27.8963 9.74975 27.7075 9.21941L25.4298 2.61486C25.3652 2.39594 25.2804 2.22598 25.1753 2.10818C25.0707 1.9877 24.9252 1.92746 24.7375 1.92746C24.1755 1.92746 23.8945 2.23942 23.8945 2.86336V10.8088H21.7653V2.67564C21.7653 2.28138 21.8394 1.91939 21.9889 1.59236C22.1373 1.2648 22.3446 0.986178 22.6071 0.759195C22.8723 0.530599 23.1809 0.35579 23.5388 0.228852C23.8974 0.105141 24.2874 0.0438232 24.7032 0.0438232C25.286 0.0438232 25.8109 0.189049 26.2728 0.480039C26.7336 0.768877 27.0584 1.18196 27.2461 1.70908L29.5412 8.32869C29.617 8.54922 29.7058 8.71381 29.8047 8.82246C29.9036 8.93057 30.0464 8.98382 30.233 8.98382C30.7949 8.98382 31.0748 8.67401 31.0748 8.05007V0.0734063H33.2041V8.25285Z"
+                        fill="#454545"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M39.8577 10.8088C36.4016 10.8088 34.6736 9.02203 34.6736 5.44893V5.4016C34.6848 1.8511 36.4179 0.0734253 39.8729 0.0734253H44V1.95921H39.3615C38.4584 1.95921 37.7852 2.23729 37.339 2.79937C36.8933 3.35929 36.6691 4.24302 36.6691 5.45646C36.6691 7.76878 37.5615 8.92413 39.343 8.92413H43.9825V10.8088H39.8577Z"
+                        fill="#454545"></path>
+                </svg>
+            </div>
+        </section>
+        <section class="GuideLine-Container">
+            <div class="GuideLine-InnerContainer">
+                <div class="GuideLine-Text">
+                    <pre class="GuideLine-TextStyle"><a href="여기에경로입력">회사소개</a>  |  <a href="여기에경로입력"><span class="GuideLine-TextBold">개인정보처리방침</span></a>  |  <a href="여기에경로입력">이용약관</a>  |  <a href="여기에경로입력">제휴 입점 및 문의</a>  |  <a href="여기에경로입력">사업자 정보</a></pre>
+                </div>
+            </div>
+        </section>
+        <section class="Info-Container">
+            <div class="Info-InnerContainer">
+                <div class="Info-Text">
+                    <pre class="Info-TextStyle"><span class="Info-TextBold">대표자</span>  김도성  |  <span class="Info-TextBold">사업자등록번호</span>  127-86-32494  |  <span class="Info-TextBold">주소</span>  서울특별시 강남구 삼성로 570 석천빌딩 지하 1층</pre>
+                    <pre class="Info-TextStyle"><span class="Info-TextBold">통신판매업</span>  제 2013-서울강남-01570호  |  <span class="Info-TextBold">개인정보보호책임자</span>  최온섭  |  <span class="Info-TextBold">팩스</span>  02-585-8477</pre>
+                    <pre class="Info-TextStyle">Tel. 1588-2469  Email. webmaster@funnc.com</pre>
+                </div>
+            </div>
+        </section>
+        <section class="SNS-Container">
+            <div class="SNS-InnerContainer">
+                <div class="Chat Scale Cursor">채팅문의</div>
+                <div class="SNS-UnitContainer">
+                    <img class="Scale Cursor" src="img/facebook.png" alt="페이스북">
+                    <img class="Scale Cursor" src="img/instagram.png" alt="인스타그램">
+                </div>
+            </div>
+        </section>
+        <section class="Corp-Container">
+            <div class="Corp-InnerContainer">
+                <div>
+                    <img class="Cursor" src="img/cesco.jpg" alt="세스코">
+                </div>
+                <div>
+                    <img class="Cursor" src="img/fairdeal.jpg" alt="공정거래위원회">
+                </div>
+                <div>
+                    <img class="Cursor" src="img/consumerAgency.jpg" alt="한국소비자원">
+                </div>
+                <div>
+                    <img class="Cursor" src="img/comodo.jpg" alt="코모도">
+                </div>
+                <div>
+                    <img class="Cursor" src="img/SGI.jpg" alt="SGI서울보증">
+                </div>
+            </div>
+        </section>
+        <section class="Bottom-Container">
+            <div class="Bottom-InnerContainer">
+                <div class="Bottom-Text">
+                    <span class="Bottom-TextStyle1">기업은행 채무지급보증 안내 </span>
+                    <span class="Bottom-TextStyle2">당사는 고객님이 현금 결제한 금액에 대해 기업은행과 채무지급보증 계약을 체결하여 안전거래를 보장하고 있습니다. </span>
+                    <span><a href="여기에경로입력">서비스 가입 사실 확인</a></span>
+                </div>
+            </div>
+        </section>
+    </footer>
+</body>
+</html>
